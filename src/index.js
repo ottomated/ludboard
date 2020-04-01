@@ -1,12 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './css/index.css';
+import App from './components/App';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import TwitchContext, { client } from './twitch';
+import { Store } from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const theme = createMuiTheme({
+	palette: {
+		type: 'dark',
+		background: {
+			default: '#23272A',
+		},
+		primary: {
+			main: '#FE9B9E',
+		},
+		secondary: {
+			main: '#FE9B9F',
+		},
+	},
+	typography: {
+		fontFamily: "'Source Sans Pro', sans-serif",
+	}
+});
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+	<Store>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<TwitchContext.Provider value={client}>
+				<App />
+			</TwitchContext.Provider>
+		</ThemeProvider>
+	</Store>,
+	document.getElementById('root'));
