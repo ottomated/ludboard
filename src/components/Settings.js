@@ -42,7 +42,7 @@ export default function Settings({ shown }) {
 				InputProps={{
 					startAdornment: <InputAdornment position="start"><Twitch /></InputAdornment>,
 					endAdornment: <InputAdornment position="start"><IconButton onClick={() => {
-						twitch.connect(settings.accessToken);
+						twitch.client.connect(settings.accessToken);
 					}}><Send /></IconButton></InputAdornment>,
 				}}
 			/>

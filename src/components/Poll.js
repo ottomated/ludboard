@@ -74,11 +74,9 @@ export default function Poll({ shown }) {
 	};
 
 	React.useEffect(() => {
-		if (twitch) {
-			twitch.on('msg', handleMessage);
-			return () => twitch.off('msg', handleMessage);
-		}
-	}, [twitch]);
+			twitch.client.on('msg', handleMessage);
+			return () => twitch.client.off('msg', handleMessage);
+	}, [twitch.client]);
 
 	return (
 		<Grid item xs={10} className={classes.root} style={{ display: shown ? 'flex' : 'none' }}>

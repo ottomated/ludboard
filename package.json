@@ -8,7 +8,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "bufferutil": "^4.0.1",
+    "cheerio": "^1.0.0-rc.3",
     "mdi-material-ui": "^6.13.0",
     "nw-react-scripts": "3.3.0",
     "react": "^16.13.1",
@@ -18,7 +20,8 @@
     "react-use": "^13.27.1",
     "twitch": "^4.0.7",
     "twitch-chat-client": "^4.0.7",
-    "utf-8-validate": "^5.0.2"
+    "utf-8-validate": "^5.0.2",
+    "worker-plugin": "^4.0.2"
   },
   "scripts": {
     "start": "nw-react-scripts start",

@@ -13,12 +13,13 @@ class LudClient extends EventEmitter {
 		}
 		this.accessToken = accessToken;
 		this.twitchClient = TwitchClient.withCredentials(clientId, this.accessToken);
-		this.chatClient = ChatClient.forTwitchClient(this.twitchClient, { channels: ['ludwig'] });
+		this.chatClient = ChatClient.forTwitchClient(this.twitchClient, { channels: ['ottomated'] });
 		this.chatClient.onConnect(() => {
-			this.emit('connect');
+			this.emit('status', true);
 		});
 		this.chatClient.onDisconnect(() => {
-			this.emit('disconnect');
+			console.log(arguments);
+			this.emit('status', false);
 		});
 		this.user = await this.twitchClient.kraken.users.getMe();
 		this.badges = await this.twitchClient.badges.getChannelBadges(ludwigId, true);

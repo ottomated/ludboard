@@ -12,12 +12,12 @@ export default function TwitchUser({ user }) {
 	const badgeArray = [];
 	for (let badge of user.badges) {
 		badgeArray.push(
-			<span style={{
+			<span key={badge[0]} style={{
 				width: 18,
 				height: 18,
 				backgroundSize: 18,
 				backgroundPosition: 'center',
-				backgroundImage: `url(${twitch.badges.getBadgeSet(badge[0]).getVersion(badge[1]).getImageUrl(1)}`,
+				backgroundImage: `url(${twitch.client.badges.getBadgeSet(badge[0]).getVersion(badge[1]).getImageUrl(1)}`,
 				borderRadius: '0.2rem',
 				display: 'inline-block',
 				margin: '0 .3rem .2rem 0',

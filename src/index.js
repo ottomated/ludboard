@@ -4,7 +4,6 @@ import './css/index.css';
 import App from './components/App';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider, CssBaseline } from '@material-ui/core';
-import TwitchContext, { client } from './twitch';
 import { Store } from './store';
 
 const theme = createMuiTheme({
@@ -29,9 +28,7 @@ ReactDOM.render(
 	<Store>
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
-			<TwitchContext.Provider value={client}>
 				<App />
-			</TwitchContext.Provider>
 		</ThemeProvider>
 	</Store>,
 	document.getElementById('root'));
