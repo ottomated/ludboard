@@ -1,7 +1,6 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 const cache = {};
-const worker = new Worker('./amazon.worker.js', { type: 'module' });
 
 export async function details(url) {
 	/*await new Promise(resolve => setTimeout(resolve, Math.floor(Math.random() * 10000) + 1000));
@@ -21,7 +20,7 @@ export async function details(url) {
 			image: $('#landingImage').attr('src').trim(),
 			title: $('#productTitle').text().trim(),
 			price: $('#price_inside_buybox').text().trim(),
-			availability: $('#availability').text().trim().replace(' - order soon.', '.').replace('Only ', ''),
+			availability: $('#availability').text().trim().replace(' - order soon.', '.').replace('Only ', '').replace("We don't know when or if this item will be back in stock.", ''),
 			features: $('#feature-bullets>ul>li:not(#replacementPartsFitmentBullet)').map((_, el) => $(el).text().trim()).toArray().join('\n')
 		};
 		if(!cache[url.asin].price) {
@@ -31,13 +30,10 @@ export async function details(url) {
 			cache[url.asin].price = $('#priceblock_ourprice').text().trim();
 		}
 		if(!cache[url.asin].price) {
-			cache[url.asin].price = $('.a-color-price').text().trim();
+			cache[url.asin].price = $('.a-color-price').first().text().trim();
 		}
 		if(!cache[url.asin].availability) {
 			cache[url.asin].availability = $('#availability_feature_div').text().trim();
-		}
-		if(!cache[url.asin].availability) {
-			cache[url.asin].availability = 'Currently Unavailable.';
 		}
 		return cache[url.asin];
 	} catch (err) {

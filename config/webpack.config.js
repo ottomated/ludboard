@@ -324,6 +324,10 @@ module.exports = function(webpackEnv) {
     module: {
       strictExportPresence: true,
       rules: [
+				{
+					test: /\.worker\.js$/,
+					use: { loader: 'worker-loader' }
+				},
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
 
