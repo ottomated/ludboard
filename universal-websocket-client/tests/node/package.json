@@ -1,0 +1,14 @@
+{
+  "name": "universal-websocket-client-test-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "universal-websocket-client": "^1.0.0"
+  }
+}

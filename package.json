@@ -77,7 +77,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "postinstall": "cd fetch-ponyfill && yarn link && cd .. && yarn link fetch-ponyfill",
+    "postinstall": "cd fetch-ponyfill && yarn link && cd .. && yarn link fetch-ponyfill && cd universal-websocket-client && yarn link && cd .. && yarn link universal-websocket-client",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
@@ -110,7 +110,6 @@
     "show": true
   },
   "nwBuilder": {
-    "//": "https://github.com/nwjs-community/nw-builder",
     "platforms": [
       "linux",
       "win64"
@@ -176,7 +175,16 @@
   },
   "devDependencies": {
     "@babel/helper-create-regexp-features-plugin": "^7.8.8",
+    "nwjs-builder-phoenix": "^1.15.0",
     "worker-loader": "^2.0.0"
   },
-  "chromium-args": "--enable-node-worker"
+  "chromium-args": "--enable-node-worker",
+	"build": {
+		"nwVersion": "0.44.6",
+		"nwFlavor": "normal",
+		"output": "./build",
+		"win": {
+			"icon": "icon.ico"
+		}
+	}
 }

@@ -1,0 +1,12 @@
+ <!DOCTYPE html>
+  <meta charset="utf-8" />
+  <title>WebSocket Test</title>
+  <script language="javascript" type="text/javascript">
+
+
+  </script>
+
+  <h2>WebSocket Test</h2>
+  <p>Adapted from <a href="http://www.websocket.org/echo.html">the WebSocket.org Echo Test</a></p>
+
+  <div id="output"></div>

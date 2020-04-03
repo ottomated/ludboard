@@ -7,10 +7,10 @@ function wrapFetchForNode(fetch) {
   // https://github.com/matthew-andrews/isomorphic-fetch/pull/10
   return function (u, options) {
     if (typeof u === 'string' && u.slice(0, 2) === '//') {
-      return fetch('https:' + u, options);
+      return window.fetch('https:' + u, options);
     }
 
-    return fetch(u, options);
+    return window.fetch(u, options);
   };
 }
 

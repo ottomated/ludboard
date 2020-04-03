@@ -1,0 +1,27 @@
+{
+  "name": "universal-websocket-client",
+  "version": "1.0.2",
+  "description": "Use the same WebSocket client code in a browser or Node.js for isomorphic apps",
+  "main": "index.js",
+  "browser": "browser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielgrant/javascript-universal-websocket-client.git"
+  },
+  "keywords": [
+    "websocket",
+    "client",
+    "browser",
+    "node",
+    "isomorphic",
+    "universal"
+  ],
+  "author": "Gabriel Grant <g@briel.ca>",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^3.3.3"
+  }
+}

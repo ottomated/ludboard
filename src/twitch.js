@@ -13,7 +13,8 @@ class LudClient extends EventEmitter {
 		}
 		this.accessToken = accessToken;
 		this.twitchClient = TwitchClient.withCredentials(clientId, this.accessToken);
-		this.chatClient = ChatClient.forTwitchClient(this.twitchClient, { channels: ['ottomated'] });
+		this.user = await this.twitchClient.kraken.users.getMe();
+		this.chatClient = ChatClient.forTwitchClient(this.twitchClient, { channels: [this.user.name] });
 		this.chatClient.onConnect(() => {
 			this.emit('status', true);
 		});
@@ -21,9 +22,8 @@ class LudClient extends EventEmitter {
 			console.log(arguments);
 			this.emit('status', false);
 		});
-		this.user = await this.twitchClient.kraken.users.getMe();
+		console.log(this.user);
 		this.badges = await this.twitchClient.badges.getChannelBadges(this.user.id, true);
-		await this.chatClient.connect();
 		this.chatClient.onPrivmsg((channel, user, message, msg) => {
 			// console.log(msg);
 			this.emit('msg', {
@@ -32,6 +32,7 @@ class LudClient extends EventEmitter {
 				info: msg
 			});
 		});
+		await this.chatClient.connect();
 	}
 }
 export default React.createContext();
