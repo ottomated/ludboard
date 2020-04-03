@@ -115,7 +115,7 @@
       "win64"
     ],
     "version": "latest",
-    "flavor": "normal",
+    "flavor": "sdk",
     "buildDir": "./build",
     "cacheDir": "./cache",
     "macIcns": "./src/logo.icns"
@@ -181,7 +181,7 @@
   "chromium-args": "--enable-node-worker",
 	"build": {
 		"nwVersion": "0.44.6",
-		"nwFlavor": "normal",
+		"nwFlavor": "sdk",
 		"output": "./build",
 		"win": {
 			"icon": "icon.ico"

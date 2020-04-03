@@ -101,7 +101,6 @@ checkBrowsers(paths.appPath, isInteractive)
         win: true,
         x64: true,
         mute: false,
-        packed: true
       }, paths.appBuild);
       nw.build()
         .then(() => {
