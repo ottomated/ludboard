@@ -22,7 +22,7 @@ class LudClient extends EventEmitter {
 			this.emit('status', false);
 		});
 		this.user = await this.twitchClient.kraken.users.getMe();
-		this.badges = await this.twitchClient.badges.getChannelBadges(ludwigId, true);
+		this.badges = await this.twitchClient.badges.getChannelBadges(this.user.id, true);
 		await this.chatClient.connect();
 		this.chatClient.onPrivmsg((channel, user, message, msg) => {
 			// console.log(msg);
