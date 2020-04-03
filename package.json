@@ -77,6 +77,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
+    "postinstall": "cd fetch-ponyfill && yarn link && cd .. && yarn link fetch-ponyfill",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
@@ -111,7 +112,6 @@
   "nwBuilder": {
     "//": "https://github.com/nwjs-community/nw-builder",
     "platforms": [
-      "osx64",
       "linux",
       "win64"
     ],
