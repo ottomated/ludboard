@@ -1,24 +1,29 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://quarter/quarter.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://Coin.gd" type="Script" id=2]
 [ext_resource path="res://quarter/Google/Tails/tails_normal_goog.png" type="Texture" id=3]
 [ext_resource path="res://quarter/Google/Tails/tails_goog.png" type="Texture" id=4]
 [ext_resource path="res://quarter/Google/Heads/heads_goog.png" type="Texture" id=5]
+[ext_resource path="res://quarter/Google/Heads/tails_goog_normal.png" type="Texture" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 5.0
 bounce = 0.5
 
 [sub_resource type="SpatialMaterial" id=2]
+flags_albedo_tex_force_srgb = true
 albedo_texture = ExtResource( 4 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 3 )
 
 [sub_resource type="SpatialMaterial" id=3]
-flags_unshaded = true
+flags_albedo_tex_force_srgb = true
 albedo_texture = ExtResource( 5 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 6 )
 
 [sub_resource type="CylinderShape" id=4]
 radius = 2.0
